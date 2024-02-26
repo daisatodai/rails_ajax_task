@@ -3,7 +3,6 @@
     <i class="material-icons">star</i>
   <% end %>
 <% else %>
-<% binding.irb %>
   <%= link_to favorites_path(blog_id: blog.id), method: :post, class: "favorite-link post-#{blog.id}", remote: true do %>
     <i class="material-icons">star_border</i>
     <% end %>
