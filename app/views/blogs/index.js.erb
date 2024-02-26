@@ -1,0 +1,2 @@
+$(<%= ".favorite-link post-#{blog.id}" %>).html("<%= j(render partial: 'blogs/favorite',  { blog: @favorite.blog }) %>")
+

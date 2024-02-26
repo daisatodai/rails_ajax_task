@@ -15,5 +15,9 @@
   <%= @blog.user.name %>
 </p>
 
+<div id="material-icons">
+  <%= render partial: 'blogs/favorite', locals: { favorites: @favorite, blog: @blog } %>
+</div>
+
 <%= link_to 'Edit', edit_blog_path(@blog) %> |
 <%= link_to 'Back', blogs_path %>

@@ -1,13 +1,18 @@
 class FavoritesController < ApplicationController
+  # before_action :authenticate_user!
 
   def create
-    current_user.favorites.create(blog_id: params[:blog_id])
-    redirect_to blogs_path
+    @blog = Blog.find(params[:blog_id])
+    @favorite = current_user.favorites.create(blog_id: params[:blog_id])
+    respond_to do |format|
+      format.js { render 'blogs/index' }
+    end
   end
 
   def destroy
-    current_user.favorites.find_by(id: params[:id]).destroy
-    redirect_to blogs_path
+    @favorite = current_user.favorites.find_by(id: params[:id]).destroy
+    respond_to do |format|
+      format.js { render 'blogs/index' }  
+    end
   end
-
 end
